@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" ng-app="toDoApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Challenge</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="public/javascript/app.js"></script>
+    <script type="text/javascript" src="public/javascript/controllers.js"></script>
+    <script type="text/javascript" src="public/javascript/factory.js"></script>
+    <script type="text/javascript" src="public/javascript/service.js"></script>
+  </head>
+  <body>
+    <div ng-controller="toDoController as controller">
+      <input type="text" ng-model="task">
+      <button ng-click="controller.addToDo(task)">Add todo</button>
+      <button ng-click="controller.removeLastToDo(task)">Remove last todo</button>
+      <p ng-repeat="todo in controller.todos">
+        {{ todo.task }}: {{ todo.completed ? "completed" : "not completed" }}
+        <button ng-click="todo.complete();">check</button>
+      </p>
+    </div>
+  </body>
+</html>
